@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Dignity Support Services (RDSS) | Kenya</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #4caf50;
+            --accent: #f1f8e9;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(27, 94, 32, 0.85), rgba(46, 125, 50, 0.85)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #dcedc8;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-dark);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .programmes-bg {
+            background-color: var(--bg-light);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .approach-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .step {
+            background: var(--accent);
+            flex: 1;
+            min-width: 130px;
+            padding: 1.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .cta-section {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+            margin: 4rem auto;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media(max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">🌿 Rural Dignity Support Services</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programmes">Programmes</a></li>
+                <li><a href="#approach">Our Approach</a></li>
+                <li><a href="#partners">Partnerships</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Reaching Communities. Restoring Hope. Changing Lives.</h1>
+        <p class="tagline">Restoring Dignity • Strengthening Communities • Transforming Lives</p>
+        <p>Working alongside rural communities to address barriers to healthcare, social protection, inclusion, education and community development in Kenya.</p>
+        <div>
+            <a href="#contact" class="btn">Partner With Us</a>
+            <a href="#programmes" class="btn btn-outline">Explore Programmes</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>About RDSS</h2>
+        <p class="section-subtitle">Committed to strengthening rural communities and improving lives.</p>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Who We Are</h3>
+                <p>Rural Dignity Support Services is a Kenyan rural community organization working with underserved, marginalized, and vulnerable communities to improve health, dignity, inclusion, protection, wellbeing, and access to essential services.</p>
+                <p>Our approach combines community mobilization, health promotion, social support, inclusion, referral, education, and sustainable development partnerships.</p>
+            </div>
+            <div class="about-text">
+                <h3>Vision & Mission</h3>
+                <h3>Vision</h3>
+                <p>Healthy, inclusive, and empowered rural communities where every person can live with dignity and opportunity.</p>
+                <h3>Mission</h3>
+                <p>To strengthen underserved rural communities through accessible healthcare, social support, inclusion, protection, community education, and sustainable development partnerships.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="programmes" class="programmes-bg">
+        <div class="container">
+            <h2>Our Core Programmes</h2>
+            <p class="section-subtitle">Comprehensive community-based initiatives tailored for maximum impact.</p>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>🏥 Primary Healthcare</h3>
+                    <p>Bringing essential health promotion, screening, education, referral, and mobile outreach closer to rural communities through health-worker engagement.</p>
+                </div>
+                <div class="card">
+                    <h3>🤰 Mother & Child Health</h3>
+                    <p>Promoting antenatal/postnatal care, safe motherhood, newborn-care education, immunization awareness, nutrition, and early identification.</p>
+                </div>
+                <div class="card">
+                    <h3>🧠 Mental Health & Psychosocial</h3>
+                    <p>Community-based mental health awareness, counselling, psychosocial support, trauma support, GBV-related support, and suicide prevention.</p>
+                </div>
+                <div class="card">
+                    <h3>♿ Disability Inclusion</h3>
+                    <p>Promoting dignity, accessibility, participation, family support, and the empowerment of persons with disabilities while reducing stigma.</p>
+                </div>
+                <div class="card">
+                    <h3>🧒 Children & Child Protection</h3>
+                    <p>Supporting vulnerable children and street-connected children through protection, healthcare, psychosocial support, education, and reintegration.</p>
+                </div>
+                <div class="card">
+                    <h3>🚫 Substance-Use Recovery</h3>
+                    <p>Prevention and awareness, withdrawal support, recovery support, family counselling, rehabilitation referrals, and community reintegration.</p>
+                </div>
+                <div class="card">
+                    <h3>🩺 NCD Prevention & Outreach</h3>
+                    <p>Hypertension and diabetes awareness/screening, cancer awareness, healthy lifestyle promotion, early detection, and specialist referrals.</p>
+                </div>
+                <div class="card">
+                    <h3>🤝 Marginalized Communities</h3>
+                    <p>Social inclusion, community protection, support for vulnerable families, access to essential services, and community empowerment.</p>
+                </div>
+                <div class="card">
+                    <h3>🌱 Youth & Community Development</h3>
+                    <p>Youth participation, life skills, community leadership, education, local mobilization, and grassroots development initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="approach" class="container">
+        <h2>Our Approach: Community First</h2>
+        <p class="section-subtitle">We believe sustainable change happens when communities participate actively.</p>
+        <div class="approach-steps">
+            <div class="step">1. Listen</div>
+            <div class="step">2. Identify</div>
+            <div class="step">3. Educate</div>
+            <div class="step">4. Support</div>
+            <div class="step">5. Refer</div>
+            <div class="step">6. Follow Up</div>
+            <div class="step">7. Empower</div>
+        </div>
+    </section>
+
+    <section id="partners" class="programmes-bg">
+        <div class="container" style="text-align: center;">
+            <h2>Partnerships & Collaboration</h2>
+            <p class="section-subtitle">We welcome collaboration with Government, NGOs, Hospitals, Universities, Research Institutions, Donors, and Foundations.</p>
+            <a href="#contact" class="btn" style="background: var(--primary); color: white;">Partner With RDSS</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="cta-section" id="contact">
+            <h2>Get Involved With RDSS</h2>
+            <p>You can help strengthen rural communities by partnering, supporting a community program, volunteering expertise, or referring individuals to services.</p>
+            <p><strong>Location:</strong> Kenya</p>
+            <p><strong>Email:</strong> info@ruraldignitysupport.org</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Rural Dignity Support Services (RDSS). All rights reserved.</p>
+        <p>Restoring Dignity • Strengthening Communities • Transforming Lives</p>
+    </footer>
+
+</body>
+</html>
